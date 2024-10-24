@@ -1,0 +1,235 @@
+MariaDB [(none)]>create database ruhande;
+MariaDB [(none)]> use ruhande;
+Database changed
+MariaDB [ruhande]>create table ngoma(id int(16),fname char(30),lname char(30),gender char(30),province char(90),district char(20),sector char(30),cell char(20),gmail varchar(30),phonenumber int(10));
+Query OK, 1 row affected (0.001 sec)
+MariaDB [ruhande]> insert into ngoma values(1200370130992070,"tumukunde","emelyne","f","kigali","gasabo","ndera","gasagara","tumukundeemme250@gmail",07889829129);
+ERROR 1264 (22003): Out of range value for column 'id' at row 1
+MariaDB [ruhande]> insert into ngoma values(1200370130,"tumukunde","emelyne","f","kigali","gasabo","ndera","gasagara","tumukundeemme250@gmail",07889829);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [ruhande]> insert into ngoma values(120037034,"sandrine","gisubizo","f","kigali","gasabo","gikomero","gasagara","gisubizosando250@gmail",0782019950);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [ruhande]> insert into ngoma values(120067034,"dusabe","peace","f","east","gatsibo","kabarore","kabarore","peace2020@gmail",0787847579);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [ruhande]> insert into ngoma values(1200677890,"dusabe","phileme","m","east","kayonza","mukarange","bwiza","philemo3070@gmail",0767847579);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [ruhande]> insert into ngoma values(1200873490,"karekezi","jean","m","south","huye","ngoma","ruhande","jeandie78070@gmail",0789829129);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [ruhande]> insert into ngoma values(19980670,"munyana","asia","f","north","gakenke","nemba","gahinga","munyanaasia70@gmail",0789827829);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [ruhande]> insert into ngoma values(130980670,"keza","asia","f","north","gakenke","karangaza","gahinga","kezaaasia70@gmail",0726827809);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [ruhande]> insert into ngoma values(120010980670,"kagabo","cloude","m","kigali","kicukiro","gikondo","gakekero","kagabocloude470@gmail",0789650524);
+ERROR 1264 (22003): Out of range value for column 'id' at row 1
+MariaDB [ruhande]> insert into ngoma values(12001880,"kagabo","cloude","m","kigali","kicukiro","gikondo","gakekero","kagabocloude470@gmail",0789650524);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [ruhande]> insert into ngoma values(12001880,"erodi","irabisohoza","f","kigali","kicukiro","gikondo","gakekero","erodirabisohoza@gmail",0785650524);
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [ruhande]> insert into ngoma values(120011588,"mbabazi","ejoa","f","south","kamonyi","runda","ruyenzi","mbabaziejoa@gmail",0785690524);
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [ruhande]> select * from ngoma;
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+
+| id         | fname     | lname       | gender | province | district | sector    | cell     | gmail                  | phonenumber |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+
+| 1200370130 | tumukunde | emelyne     | f      | kigali   | gasabo   | ndera     | gasagara | tumukundeemme250@gmail |     7889829 |
+|  120037034 | sandrine  | gisubizo    | f      | kigali   | gasabo   | gikomero  | gasagara | gisubizosando250@gmail |   782019950 |
+|  120067034 | dusabe    | peace       | f      | east     | gatsibo  | kabarore  | kabarore | peace2020@gmail        |   787847579 |
+| 1200677890 | dusabe    | phileme     | m      | east     | kayonza  | mukarange | bwiza    | philemo3070@gmail      |   767847579 |
+| 1200873490 | karekezi  | jean        | m      | south    | huye     | ngoma     | ruhande  | jeandie78070@gmail     |   789829129 |
+|   19980670 | munyana   | asia        | f      | north    | gakenke  | nemba     | gahinga  | munyanaasia70@gmail    |   789827829 |
+|  130980670 | keza      | asia        | f      | north    | gakenke  | karangaza | gahinga  | kezaaasia70@gmail      |   726827809 |
+|   12001880 | kagabo    | cloude      | m      | kigali   | kicukiro | gikondo   | gakekero | kagabocloude470@gmail  |   789650524 |
+|   12001880 | erodi     | irabisohoza | f      | kigali   | kicukiro | gikondo   | gakekero | erodirabisohoza@gmail  |   785650524 |
+|  120011588 | mbabazi   | ejoa        | f      | south    | kamonyi  | runda     | ruyenzi  | mbabaziejoa@gmail      |   785690524 |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+
+10 rows in set (0.001 sec)
+
+MariaDB [ruhande]> alter table ngoma add village char(20);
+Query OK, 10 rows affected (0.041 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [ruhande]> select * from ngoma;
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+---------+
+| id         | fname     | lname       | gender | province | district | sector    | cell     | gmail                  | phonenumber | village |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+---------+
+| 1200370130 | tumukunde | emelyne     | f      | kigali   | gasabo   | ndera     | gasagara | tumukundeemme250@gmail |     7889829 | NULL    |
+|  120037034 | sandrine  | gisubizo    | f      | kigali   | gasabo   | gikomero  | gasagara | gisubizosando250@gmail |   782019950 | NULL    |
+|  120067034 | dusabe    | peace       | f      | east     | gatsibo  | kabarore  | kabarore | peace2020@gmail        |   787847579 | NULL    |
+| 1200677890 | dusabe    | phileme     | m      | east     | kayonza  | mukarange | bwiza    | philemo3070@gmail      |   767847579 | NULL    |
+| 1200873490 | karekezi  | jean        | m      | south    | huye     | ngoma     | ruhande  | jeandie78070@gmail     |   789829129 | NULL    |
+|   19980670 | munyana   | asia        | f      | north    | gakenke  | nemba     | gahinga  | munyanaasia70@gmail    |   789827829 | NULL    |
+|  130980670 | keza      | asia        | f      | north    | gakenke  | karangaza | gahinga  | kezaaasia70@gmail      |   726827809 | NULL    |
+|   12001880 | kagabo    | cloude      | m      | kigali   | kicukiro | gikondo   | gakekero | kagabocloude470@gmail  |   789650524 | NULL    |
+|   12001880 | erodi     | irabisohoza | f      | kigali   | kicukiro | gikondo   | gakekero | erodirabisohoza@gmail  |   785650524 | NULL    |
+|  120011588 | mbabazi   | ejoa        | f      | south    | kamonyi  | runda     | ruyenzi  | mbabaziejoa@gmail      |   785690524 | NULL    |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+---------+
+10 rows in set (0.005 sec)
+
+MariaDB [ruhande]> update ngoma set village="gasagara" ;
+Query OK, 10 rows affected (0.001 sec)
+Rows matched: 10  Changed: 10  Warnings: 0
+
+MariaDB [ruhande]> select * from ngoma;
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+----------+
+| id         | fname     | lname       | gender | province | district | sector    | cell     | gmail                  | phonenumber | village  |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+----------+
+| 1200370130 | tumukunde | emelyne     | f      | kigali   | gasabo   | ndera     | gasagara | tumukundeemme250@gmail |     7889829 | gasagara |
+|  120037034 | sandrine  | gisubizo    | f      | kigali   | gasabo   | gikomero  | gasagara | gisubizosando250@gmail |   782019950 | gasagara |
+|  120067034 | dusabe    | peace       | f      | east     | gatsibo  | kabarore  | kabarore | peace2020@gmail        |   787847579 | gasagara |
+| 1200677890 | dusabe    | phileme     | m      | east     | kayonza  | mukarange | bwiza    | philemo3070@gmail      |   767847579 | gasagara |
+| 1200873490 | karekezi  | jean        | m      | south    | huye     | ngoma     | ruhande  | jeandie78070@gmail     |   789829129 | gasagara |
+|   19980670 | munyana   | asia        | f      | north    | gakenke  | nemba     | gahinga  | munyanaasia70@gmail    |   789827829 | gasagara |
+|  130980670 | keza      | asia        | f      | north    | gakenke  | karangaza | gahinga  | kezaaasia70@gmail      |   726827809 | gasagara |
+|   12001880 | kagabo    | cloude      | m      | kigali   | kicukiro | gikondo   | gakekero | kagabocloude470@gmail  |   789650524 | gasagara |
+|   12001880 | erodi     | irabisohoza | f      | kigali   | kicukiro | gikondo   | gakekero | erodirabisohoza@gmail  |   785650524 | gasagara |
+|  120011588 | mbabazi   | ejoa        | f      | south    | kamonyi  | runda     | ruyenzi  | mbabaziejoa@gmail      |   785690524 | gasagara |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+----------+
+10 rows in set (0.001 sec)
+
+MariaDB [ruhande]> update ngoma set village="rugwiza" where id=1200370130;
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [ruhande]> select * from ngoma;
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+----------+
+| id         | fname     | lname       | gender | province | district | sector    | cell     | gmail                  | phonenumber | village  |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+----------+
+| 1200370130 | tumukunde | emelyne     | f      | kigali   | gasabo   | ndera     | gasagara | tumukundeemme250@gmail |     7889829 | rugwiza  |
+|  120037034 | sandrine  | gisubizo    | f      | kigali   | gasabo   | gikomero  | gasagara | gisubizosando250@gmail |   782019950 | gasagara |
+|  120067034 | dusabe    | peace       | f      | east     | gatsibo  | kabarore  | kabarore | peace2020@gmail        |   787847579 | gasagara |
+| 1200677890 | dusabe    | phileme     | m      | east     | kayonza  | mukarange | bwiza    | philemo3070@gmail      |   767847579 | gasagara |
+| 1200873490 | karekezi  | jean        | m      | south    | huye     | ngoma     | ruhande  | jeandie78070@gmail     |   789829129 | gasagara |
+|   19980670 | munyana   | asia        | f      | north    | gakenke  | nemba     | gahinga  | munyanaasia70@gmail    |   789827829 | gasagara |
+|  130980670 | keza      | asia        | f      | north    | gakenke  | karangaza | gahinga  | kezaaasia70@gmail      |   726827809 | gasagara |
+|   12001880 | kagabo    | cloude      | m      | kigali   | kicukiro | gikondo   | gakekero | kagabocloude470@gmail  |   789650524 | gasagara |
+|   12001880 | erodi     | irabisohoza | f      | kigali   | kicukiro | gikondo   | gakekero | erodirabisohoza@gmail  |   785650524 | gasagara |
+|  120011588 | mbabazi   | ejoa        | f      | south    | kamonyi  | runda     | ruyenzi  | mbabaziejoa@gmail      |   785690524 | gasagara |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+----------+
+10 rows in set (0.001 sec)
+MariaDB [ruhande]> select id ,fname,lname,province from ngoma;
++------------+-----------+-------------+----------+
+| id         | fname     | lname       | province |
++------------+-----------+-------------+----------+
+| 1200370130 | tumukunde | emelyne     | kigali   |
+|  120037034 | sandrine  | gisubizo    | kigali   |
+|  120067034 | dusabe    | peace       | east     |
+| 1200677890 | dusabe    | phileme     | east     |
+| 1200873490 | karekezi  | jean        | south    |
+|   19980670 | munyana   | asia        | north    |
+|  130980670 | keza      | asia        | north    |
+|   12001880 | kagabo    | cloude      | kigali   |
+|   12001880 | erodi     | irabisohoza | kigali   |
+|  120011588 | mbabazi   | ejoa        | south    |
++------------+-----------+-------------+----------+
+10 rows in set (0.002 sec)
+MariaDB [ruhande]> alter table ngoma drop village;
+Query OK, 10 rows affected (0.039 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+MariaDB [ruhande]> select * from ngoma;
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+
+| id         | fname     | lname       | gender | province | district | sector    | cell     | gmail                  | phonenumber |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+
+| 1200370130 | tumukunde | emelyne     | f      | kigali   | gasabo   | ndera     | gasagara | tumukundeemme250@gmail |     7889829 |
+|  120037034 | sandrine  | gisubizo    | f      | kigali   | gasabo   | gikomero  | gasagara | gisubizosando250@gmail |   782019950 |
+|  120067034 | dusabe    | peace       | f      | east     | gatsibo  | kabarore  | kabarore | peace2020@gmail        |   787847579 |
+| 1200677890 | dusabe    | phileme     | m      | east     | kayonza  | mukarange | bwiza    | philemo3070@gmail      |   767847579 |
+| 1200873490 | karekezi  | jean        | m      | south    | huye     | ngoma     | ruhande  | jeandie78070@gmail     |   789829129 |
+|   19980670 | munyana   | asia        | f      | north    | gakenke  | nemba     | gahinga  | munyanaasia70@gmail    |   789827829 |
+|  130980670 | keza      | asia        | f      | north    | gakenke  | karangaza | gahinga  | kezaaasia70@gmail      |   726827809 |
+|   12001880 | kagabo    | cloude      | m      | kigali   | kicukiro | gikondo   | gakekero | kagabocloude470@gmail  |   789650524 |
+|   12001880 | erodi     | irabisohoza | f      | kigali   | kicukiro | gikondo   | gakekero | erodirabisohoza@gmail  |   785650524 |
+|  120011588 | mbabazi   | ejoa        | f      | south    | kamonyi  | runda     | ruyenzi  | mbabaziejoa@gmail      |   785690524 |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+
+10 rows in set (0.006 sec)
+
+MariaDB [ruhande]> select* from ngoma where gender="f" or province="kigali";
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+
+| id         | fname     | lname       | gender | province | district | sector    | cell     | gmail                  | phonenumber |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+
+| 1200370130 | tumukunde | emelyne     | f      | kigali   | gasabo   | ndera     | gasagara | tumukundeemme250@gmail |     7889829 |
+|  120037034 | sandrine  | gisubizo    | f      | kigali   | gasabo   | gikomero  | gasagara | gisubizosando250@gmail |   782019950 |
+|  120067034 | dusabe    | peace       | f      | east     | gatsibo  | kabarore  | kabarore | peace2020@gmail        |   787847579 |
+|   19980670 | munyana   | asia        | f      | north    | gakenke  | nemba     | gahinga  | munyanaasia70@gmail    |   789827829 |
+|  130980670 | keza      | asia        | f      | north    | gakenke  | karangaza | gahinga  | kezaaasia70@gmail      |   726827809 |
+|   12001880 | kagabo    | cloude      | m      | kigali   | kicukiro | gikondo   | gakekero | kagabocloude470@gmail  |   789650524 |
+|   12001880 | erodi     | irabisohoza | f      | kigali   | kicukiro | gikondo   | gakekero | erodirabisohoza@gmail  |   785650524 |
+|  120011588 | mbabazi   | ejoa        | f      | south    | kamonyi  | runda     | ruyenzi  | mbabaziejoa@gmail      |   785690524 |
++------------+-----------+-------------+--------+----------+----------+-----------+----------+------------------------+-------------+
+8 rows in set (0.001 sec)
+
+MariaDB [ruhande]> select* from ngoma where gender="f" and district="gakenke";
++-----------+---------+-------+--------+----------+----------+-----------+---------+---------------------+-------------+
+| id        | fname   | lname | gender | province | district | sector    | cell    | gmail               | phonenumber |
++-----------+---------+-------+--------+----------+----------+-----------+---------+---------------------+-------------+
+|  19980670 | munyana | asia  | f      | north    | gakenke  | nemba     | gahinga | munyanaasia70@gmail |   789827829 |
+| 130980670 | keza    | asia  | f      | north    | gakenke  | karangaza | gahinga | kezaaasia70@gmail   |   726827809 |
++-----------+---------+-------+--------+----------+----------+-----------+---------+---------------------+-------------+
+2 rows in set (0.002 sec)
+
+MariaDB [ruhande]> select *from ngoma where lname="asia";
++-----------+---------+-------+--------+----------+----------+-----------+---------+---------------------+-------------+
+| id        | fname   | lname | gender | province | district | sector    | cell    | gmail               | phonenumber |
++-----------+---------+-------+--------+----------+----------+-----------+---------+---------------------+-------------+
+|  19980670 | munyana | asia  | f      | north    | gakenke  | nemba     | gahinga | munyanaasia70@gmail |   789827829 |
+| 130980670 | keza    | asia  | f      | north    | gakenke  | karangaza | gahinga | kezaaasia70@gmail   |   726827809 |
++-----------+---------+-------+--------+----------+----------+-----------+---------+---------------------+-------------+
+2 rows in set (0.001 sec)
+MariaDB [ruhande]> select * from ngoma where province in("kigali","south");
++------------+-----------+-------------+--------+----------+----------+----------+----------+------------------------+-------------+
+| id         | fname     | lname       | gender | province | district | sector   | cell     | gmail                  | phonenumber |
++------------+-----------+-------------+--------+----------+----------+----------+----------+------------------------+-------------+
+| 1200370130 | tumukunde | emelyne     | f      | kigali   | gasabo   | ndera    | gasagara | tumukundeemme250@gmail |     7889829 |
+|  120037034 | sandrine  | gisubizo    | f      | kigali   | gasabo   | gikomero | gasagara | gisubizosando250@gmail |   782019950 |
+| 1200873490 | karekezi  | jean        | m      | south    | huye     | ngoma    | ruhande  | jeandie78070@gmail     |   789829129 |
+|   12001880 | kagabo    | cloude      | m      | kigali   | kicukiro | gikondo  | gakekero | kagabocloude470@gmail  |   789650524 |
+|   12001880 | erodi     | irabisohoza | f      | kigali   | kicukiro | gikondo  | gakekero | erodirabisohoza@gmail  |   785650524 |
+|  120011588 | mbabazi   | ejoa        | f      | south    | kamonyi  | runda    | ruyenzi  | mbabaziejoa@gmail      |   785690524 |
++------------+-----------+-------------+--------+----------+----------+----------+----------+------------------------+-------------+
+6 rows in set (0.001 sec)
+MariaDB [ruhande]> delete * from ngoma where id= 12001880;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '* from ngoma where id= 12001880' at line 1
+MariaDB [ruhande]> delete from ngoma where id= 12001880;
+Query OK, 2 rows affected (0.015 sec)
+
+MariaDB [ruhande]> select * from ngoma;
++------------+-----------+----------+--------+----------+----------+-----------+----------+------------------------+-------------+
+| id         | fname     | lname    | gender | province | district | sector    | cell     | gmail                  | phonenumber |
++------------+-----------+----------+--------+----------+----------+-----------+----------+------------------------+-------------+
+| 1200370130 | tumukunde | emelyne  | f      | kigali   | gasabo   | ndera     | gasagara | tumukundeemme250@gmail |     7889829 |
+|  120037034 | sandrine  | gisubizo | f      | kigali   | gasabo   | gikomero  | gasagara | gisubizosando250@gmail |   782019950 |
+|  120067034 | dusabe    | peace    | f      | east     | gatsibo  | kabarore  | kabarore | peace2020@gmail        |   787847579 |
+| 1200677890 | dusabe    | phileme  | m      | east     | kayonza  | mukarange | bwiza    | philemo3070@gmail      |   767847579 |
+| 1200873490 | karekezi  | jean     | m      | south    | huye     | ngoma     | ruhande  | jeandie78070@gmail     |   789829129 |
+|   19980670 | munyana   | asia     | f      | north    | gakenke  | nemba     | gahinga  | munyanaasia70@gmail    |   789827829 |
+|  130980670 | keza      | asia     | f      | north    | gakenke  | karangaza | gahinga  | kezaaasia70@gmail      |   726827809 |
+|  120011588 | mbabazi   | ejoa     | f      | south    | kamonyi  | runda     | ruyenzi  | mbabaziejoa@gmail      |   785690524 |
++------------+-----------+----------+--------+----------+----------+-----------+----------+------------------------+-------------+
+8 rows in set (0.001 sec)
+
+MariaDB [ruhande]> delete from ngoma where id= 1200370130;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [ruhande]> select * from ngoma;
++------------+----------+----------+--------+----------+----------+-----------+----------+------------------------+-------------+
+| id         | fname    | lname    | gender | province | district | sector    | cell     | gmail                  | phonenumber |
++------------+----------+----------+--------+----------+----------+-----------+----------+------------------------+-------------+
+|  120037034 | sandrine | gisubizo | f      | kigali   | gasabo   | gikomero  | gasagara | gisubizosando250@gmail |   782019950 |
+|  120067034 | dusabe   | peace    | f      | east     | gatsibo  | kabarore  | kabarore | peace2020@gmail        |   787847579 |
+| 1200677890 | dusabe   | phileme  | m      | east     | kayonza  | mukarange | bwiza    | philemo3070@gmail      |   767847579 |
+| 1200873490 | karekezi | jean     | m      | south    | huye     | ngoma     | ruhande  | jeandie78070@gmail     |   789829129 |
+|   19980670 | munyana  | asia     | f      | north    | gakenke  | nemba     | gahinga  | munyanaasia70@gmail    |   789827829 |
+|  130980670 | keza     | asia     | f      | north    | gakenke  | karangaza | gahinga  | kezaaasia70@gmail      |   726827809 |
+|  120011588 | mbabazi  | ejoa     | f      | south    | kamonyi  | runda     | ruyenzi  | mbabaziejoa@gmail      |   785690524 |
++------------+----------+----------+--------+----------+----------+-----------+----------+------------------------+-------------+
+7 rows in set (0.001 sec)
